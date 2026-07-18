@@ -266,12 +266,14 @@ const hungryTexts = [
 let isEating = false;
 
 window.addEventListener("load", function () {
+
   const status = document.getElementById("status");
 
   const randomText =
     hungryTexts[Math.floor(Math.random() * hungryTexts.length)];
 
   status.textContent = randomText;
+
 });
 
 function feedMeng() {
