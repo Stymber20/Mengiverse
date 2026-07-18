@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>MENG ID</title>
+
+<style>
+
+body{
+
+margin:0;
+background:#FFE86B;
+font-family:Arial,sans-serif;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+height:100vh;
+
+}
+
+.card{
+
+width:340px;
+
+background:white;
+
+border-radius:30px;
+
+padding:25px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.2);
+
+animation:pop .6s ease;
+
+text-align:center;
+
+}
+
+img{
+
+width:170px;
+height:170px;
+
+border-radius:50%;
+
+border:8px solid #FFE86B;
+
+object-fit:cover;
+
+}
+
+h1{
+
+margin:15px 0 5px;
+
+font-size:34px;
+
+}
+
+h2{
+
+margin:0;
+
+color:#777;
+
+font-size:20px;
+
+}
+
+.info{
+
+margin-top:25px;
+
+text-align:left;
+
+line-height:1.8;
+
+font-size:18px;
+
+}
+
+button{
+
+margin-top:25px;
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+background:#FFD400;
+
+font-size:22px;
+
+border-radius:15px;
+
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#FFC400;
+
+}
+
+@keyframes pop{
+
+0%{
+
+transform:scale(.6);
+
+opacity:0;
+
+}
+
+100%{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<img src="meng.jpeg">
+
+<h1>🦭 เด็กชาย ราเมง</h1>
+
+<h2>AKA : มูเมงเด็กแสบ</h2>
+
+<div class="info">
+
+<b>🎂 วันเกิด</b><br>
+
+1 ตุลาคม 2566
+
+<br><br>
+
+<b>🍜 พี่น้อง</b>
+
+<ul>
+
+<li>มิโตะ</li>
+
+<li>โยซึเกะ</li>
+
+<li>โซบะ</li>
+
+<li>มิโซะ</li>
+
+<li>โดโซะ</li>
+
+</ul>
+
+<b>🍖 อาหารโปรด</b><br>
+
+ทุกอย่างที่กินได้
+
+</div>
+
+<button onclick="feed()">
+
+🍣 ให้อาหารเมง
+
+</button>
+
+</div>
+
+<script>
+
+function feed(){
+
+alert("เมง : งั่มๆๆ ขอบคุณนะฮะ 💛🦭");
+
+}
+
+</script>
+
+</body>
+
+</html>
