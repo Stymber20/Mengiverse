@@ -9,125 +9,195 @@
 
 <style>
 
-body{
-
-margin:0;
-background:#FFE86B;
-font-family:Arial,sans-serif;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-height:100vh;
-
+* {
+  box-sizing: border-box;
 }
 
-.card{
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 24px;
+  background: #FFE86B;
+  font-family: Arial, sans-serif;
 
-width:340px;
-
-background:white;
-
-border-radius:30px;
-
-padding:25px;
-
-box-shadow:0 15px 40px rgba(0,0,0,.2);
-
-animation:pop .6s ease;
-
-text-align:center;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-img{
+.card {
+  width: 100%;
+  max-width: 390px;
 
-width:170px;
-height:170px;
+  background: white;
+  border-radius: 30px;
+  padding: 25px;
 
-border-radius:50%;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 
-border:8px solid #FFE86B;
+  animation: pop 0.6s ease;
 
-object-fit:cover;
-
+  text-align: center;
 }
 
-h1{
+.meng-photo {
+  width: 170px;
+  height: 170px;
 
-margin:15px 0 5px;
+  border-radius: 50%;
+  border: 8px solid #FFE86B;
 
-font-size:34px;
+  object-fit: cover;
 
+  animation: bounce 1.2s ease;
 }
 
-h2{
-
-margin:0;
-
-color:#777;
-
-font-size:20px;
-
+h1 {
+  margin: 15px 0 5px;
+  font-size: 34px;
 }
 
-.info{
-
-margin-top:25px;
-
-text-align:left;
-
-line-height:1.8;
-
-font-size:18px;
-
+.aka {
+  margin: 0;
+  color: #777;
+  font-size: 20px;
 }
 
-button{
+#status {
+  margin: 15px 0 0;
+  padding: 12px 10px;
 
-margin-top:25px;
+  color: #E88700;
+  background: #FFF8D8;
 
-width:100%;
+  border-radius: 15px;
 
-padding:15px;
+  font-size: 20px;
+  line-height: 1.4;
 
-border:none;
-
-background:#FFD400;
-
-font-size:22px;
-
-border-radius:15px;
-
-cursor:pointer;
-
+  transition: transform 0.25s ease;
 }
 
-button:hover{
+.info {
+  margin-top: 25px;
 
-background:#FFC400;
-
+  text-align: left;
+  line-height: 1.8;
+  font-size: 18px;
 }
 
-@keyframes pop{
-
-0%{
-
-transform:scale(.6);
-
-opacity:0;
-
+.info ul {
+  margin-top: 5px;
+  padding-left: 30px;
 }
 
-100%{
+button {
+  margin-top: 25px;
 
-transform:scale(1);
+  width: 100%;
+  padding: 15px;
 
-opacity:1;
+  border: none;
+  border-radius: 15px;
 
+  background: #FFD400;
+
+  font-size: 22px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
 }
 
+button:hover {
+  background: #FFC400;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 0.85;
+}
+
+.heart {
+  position: fixed;
+
+  font-size: 28px;
+
+  pointer-events: none;
+
+  animation: floatUp 1.5s ease forwards;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-20px) scale(0.8);
+    opacity: 0;
+  }
+
+  70% {
+    transform: translateY(5px) scale(1.05);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.7);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-130px) scale(1.4);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 430px) {
+  body {
+    padding: 15px;
+    align-items: flex-start;
+  }
+
+  .card {
+    margin-top: 15px;
+    padding: 22px;
+  }
+
+  h1 {
+    font-size: 29px;
+  }
+
+  .meng-photo {
+    width: 155px;
+    height: 155px;
+  }
 }
 
 </style>
@@ -138,60 +208,135 @@ opacity:1;
 
 <div class="card">
 
-<img src="meng.jpeg">
+  <img
+    src="meng.jpeg"
+    alt="น้องเมง"
+    class="meng-photo"
+  >
 
-<h1>🦭 เด็กชาย ราเมง</h1>
+  <h1>🦭 เด็กชาย ราเมง</h1>
 
-<h2>AKA : มูเมงเด็กแสบ</h2>
+  <h2 class="aka">AKA : มูเมงเด็กแสบ</h2>
 
-<div class="info">
+  <h2 id="status">🍜 เมงหิวแล้วฮะ</h2>
 
-<b>🎂 วันเกิด</b><br>
+  <div class="info">
 
-1 ตุลาคม 2566
+    <b>🎂 วันเกิด</b><br>
+    1 ตุลาคม 2566
 
-<br><br>
+    <br><br>
 
-<b>🍜 พี่น้อง</b>
+    <b>🍜 พี่น้อง</b>
 
-<ul>
+    <ul>
+      <li>มิโตะ</li>
+      <li>โยซึเกะ</li>
+      <li>โซบะ</li>
+      <li>มิโซะ</li>
+      <li>โดโซะ</li>
+    </ul>
 
-<li>มิโตะ</li>
+    <b>🍖 อาหารโปรด</b><br>
+    ทุกอย่างที่กินได้
 
-<li>โยซึเกะ</li>
+  </div>
 
-<li>โซบะ</li>
-
-<li>มิโซะ</li>
-
-<li>โดโซะ</li>
-
-</ul>
-
-<b>🍖 อาหารโปรด</b><br>
-
-ทุกอย่างที่กินได้
-
-</div>
-
-<button onclick="feed()">
-
-🍣 ให้อาหารเมง
-
-</button>
+  <button id="feed" onclick="feedMeng()">
+    🍣 ให้อาหารเมง
+  </button>
 
 </div>
 
 <script>
 
-function feed(){
+const hungryTexts = [
+  "🍜 เมงหิวแล้วฮะ",
+  "🦭 วันนี้กอดเมงหรือยังฮะ",
+  "😴 เมงง่วงจัง...",
+  "🛵 วันนี้เมงขอแว๊นก่อนนะฮะ",
+  "🎮 Warframe ก่อน ค่อยกินข้าว",
+  "🚀 Rocky ชวนเมงไปอวกาศฮะ",
+  "💛 ขอบคุณที่มาเยี่ยมเมงนะฮะ",
+  "🍤 วันนี้มีของกินไหมฮะ",
+  "🍗 เมงกินได้ทุกอย่างฮะ",
+  "🦭 งับก่อน ค่อยคุยกันฮะ"
+];
 
-alert("เมง : งั่มๆๆ ขอบคุณนะฮะ 💛🦭");
+let isEating = false;
 
+window.addEventListener("load", function () {
+  const status = document.getElementById("status");
+
+  const randomText =
+    hungryTexts[Math.floor(Math.random() * hungryTexts.length)];
+
+  status.textContent = randomText;
+});
+
+function feedMeng() {
+  if (isEating) {
+    return;
+  }
+
+  isEating = true;
+
+  const status = document.getElementById("status");
+  const button = document.getElementById("feed");
+  const photo = document.querySelector(".meng-photo");
+
+  status.textContent = "💛 เมงอิ่มแล้วฮะ";
+  status.style.transform = "scale(1.05)";
+
+  button.textContent = "😋 งับๆๆๆ";
+  button.disabled = true;
+
+  photo.style.transform = "scale(1.08) rotate(-3deg)";
+
+  createHearts();
+
+  setTimeout(function () {
+    photo.style.transform = "scale(1) rotate(0deg)";
+    status.style.transform = "scale(1)";
+  }, 500);
+
+  setTimeout(function () {
+    status.textContent = "🍜 เมงหิวอีกแล้วฮะ";
+    button.textContent = "🍣 ให้อาหารเมง";
+    button.disabled = false;
+
+    isEating = false;
+  }, 6000);
+}
+
+function createHearts() {
+  const emojis = ["💛", "🍣", "✨", "🦭"];
+
+  for (let i = 0; i < 8; i++) {
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+    heart.textContent =
+      emojis[Math.floor(Math.random() * emojis.length)];
+
+    heart.style.left =
+      Math.random() * 70 + 15 + "%";
+
+    heart.style.top =
+      Math.random() * 20 + 65 + "%";
+
+    heart.style.animationDelay =
+      Math.random() * 0.4 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(function () {
+      heart.remove();
+    }, 2000);
+  }
 }
 
 </script>
 
 </body>
-
 </html>
